@@ -235,11 +235,7 @@ a {
   border-bottom: 1px solid var(--border-subtle);
 }
 
-/* Disable backdrop-filter when menu open to prevent containing-block bug */
-body.menu-open .header.scrolled {
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-}
+
 
 /* Nav backdrop overlay (JS-managed, appended to body) */
 #navBackdrop {

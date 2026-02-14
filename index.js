@@ -28,11 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(navBackdrop);
 
   function openMenu() {
+    // Move nav to body so it's outside header's backdrop-filter containing block
+    document.body.appendChild(nav);
     nav.classList.add('open');
     hamburger.classList.add('active');
     document.body.classList.add('menu-open');
     document.body.style.overflow = 'hidden';
-    // Small delay so CSS transition can play
     requestAnimationFrame(() => navBackdrop.classList.add('visible'));
   }
 
@@ -42,6 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('menu-open');
     document.body.style.overflow = '';
     navBackdrop.classList.remove('visible');
+    // Move nav back into header
+    header.querySelector('.header__inner').appendChild(nav);
   }
 
   hamburger.addEventListener('click', () => {
