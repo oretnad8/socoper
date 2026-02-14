@@ -246,14 +246,18 @@ body.menu-open .header.scrolled {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0);
-  z-index: 1040;
-  transition: background 0.3s ease;
+  z-index: 999;
+  transition: background 0.35s ease, backdrop-filter 0.35s ease;
   pointer-events: none;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
 }
 
 #navBackdrop.visible {
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.45);
   pointer-events: all;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .header__inner {

@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (message) waMsg += `*Mensaje:* ${message}%0A`;
 
       // Open WhatsApp with pre-filled message
-      window.open(`https://wa.me/569XXXXXXXX?text=${waMsg}`, '_blank');
+      window.open(`https://wa.me/56920015745?text=${waMsg}`, '_blank');
 
       // Show success state
       const btn = form.querySelector('button[type="submit"]');
