@@ -204,4 +204,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach(section => navObserver.observe(section));
 
+  // ─── PROJECT VIDEOS SINGLETON PLAYBACK ────────
+  const projectVideoCards = document.querySelectorAll('.project-card--video');
+  const allVideos = document.querySelectorAll('.project-card--video video');
+
+  projectVideoCards.forEach(card => {
+    const video = card.querySelector('video');
+
+    card.addEventListener('click', () => {
+      if (video.paused) {
+        // Singleton: pause all other videos
+        allVideos.forEach(v => {
+          v.pause();
+          v.closest('.project-card--video').classList.remove('is-playing');
+        });
+
+        video.play();
+        card.classList.add('is-playing');
+      } else {
+        video.pause();
+        card.classList.remove('is-playing');
+      }
+    });
+
+    // Also handle case where video ends
+    video.addEventListener('ended', () => {
+      card.classList.remove('is-playing');
+    });
+  });
+
 });
