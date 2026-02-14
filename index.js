@@ -22,16 +22,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('nav');
 
+  // Create backdrop overlay on body (outside header to avoid backdrop-filter issues)
+  const navBackdrop = document.createElement('div');
+  navBackdrop.id = 'navBackdrop';
+  document.body.appendChild(navBackdrop);
+
+  function openMenu() {
+    nav.classList.add('open');
+    hamburger.classList.add('active');
+    document.body.classList.add('menu-open');
+    document.body.style.overflow = 'hidden';
+    // Small delay so CSS transition can play
+    requestAnimationFrame(() => navBackdrop.classList.add('visible'));
+  }
+
   function closeMenu() {
     nav.classList.remove('open');
     hamburger.classList.remove('active');
+    document.body.classList.remove('menu-open');
     document.body.style.overflow = '';
+    navBackdrop.classList.remove('visible');
   }
 
   hamburger.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    hamburger.classList.toggle('active');
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (nav.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
   // Close menu on link click
@@ -39,14 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => closeMenu());
   });
 
-  // Close menu when clicking outside (on backdrop)
-  document.addEventListener('click', (e) => {
-    if (nav.classList.contains('open') &&
-      !nav.contains(e.target) &&
-      !hamburger.contains(e.target)) {
-      closeMenu();
-    }
-  });
+  // Close menu when clicking on backdrop
+  navBackdrop.addEventListener('click', () => closeMenu());
 
   // ─── SCROLL REVEAL ────────────────────────────
   const revealElements = document.querySelectorAll('.reveal');
