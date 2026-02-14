@@ -22,6 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('nav');
 
+  function closeMenu() {
+    nav.classList.remove('open');
+    hamburger.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
   hamburger.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('open');
     hamburger.classList.toggle('active');
@@ -30,11 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Close menu on link click
   nav.querySelectorAll('.nav__link').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      hamburger.classList.remove('active');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', () => closeMenu());
+  });
+
+  // Close menu when clicking outside (on backdrop)
+  document.addEventListener('click', (e) => {
+    if (nav.classList.contains('open') &&
+      !nav.contains(e.target) &&
+      !hamburger.contains(e.target)) {
+      closeMenu();
+    }
   });
 
   // ─── SCROLL REVEAL ────────────────────────────

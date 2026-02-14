@@ -332,6 +332,8 @@ a {
   border: none;
   cursor: pointer;
   padding: 4px;
+  z-index: 1100;
+  position: relative;
 }
 
 .hamburger span {
@@ -340,6 +342,7 @@ a {
   height: 2px;
   background: var(--white);
   transition: all 0.3s;
+  transform-origin: center;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -1202,55 +1205,73 @@ a {
     display: none;
   }
 
-  /* Mobile nav overlay — position below full header */
+  /* Mobile nav — right side panel */
   .nav.open {
     display: flex;
     flex-direction: column;
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(10, 22, 40, 0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 120px 32px 32px;
-    gap: 24px;
-    z-index: 999;
+    width: 280px;
+    max-width: 80vw;
+    background: var(--blue-800);
+    border-left: 1px solid var(--border-subtle);
+    padding: 100px 32px 40px;
+    gap: 8px;
+    z-index: 1050;
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.5);
     animation: navSlideIn 0.3s var(--ease);
+    overflow-y: auto;
   }
 
   .nav.open .nav__link {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 17px;
+    font-weight: 500;
     color: var(--gray-300);
-    padding: 8px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--border-subtle);
   }
 
-  .nav.open .nav__link:hover {
+  .nav.open .nav__link:last-child {
+    border-bottom: none;
+  }
+
+  .nav.open .nav__link:hover,
+  .nav.open .nav__link.active {
     color: var(--orange);
+  }
+
+  /* Backdrop overlay behind side panel */
+  .nav.open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 280px;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
   }
 
   @keyframes navSlideIn {
     from {
-      opacity: 0;
-      transform: translateY(-10px);
+      transform: translateX(100%);
     }
 
     to {
-      opacity: 1;
-      transform: translateY(0);
+      transform: translateX(0);
     }
   }
 
-  /* Hamburger active animation */
+  /* Hamburger active animation → X */
   .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
 
   .hamburger.active span:nth-child(2) {
     opacity: 0;
+    transform: translateX(10px);
   }
 
   .hamburger.active span:nth-child(3) {
@@ -1428,19 +1449,30 @@ a {
     height: 1px;
   }
 
-  /* Method → single column */
+  /* Method → single column with inline step number */
   .method__timeline {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
+  }
+
+  .method__step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
   }
 
   .method__step-number {
-    font-size: 40px;
-    margin-bottom: 8px;
+    font-size: 28px;
+    margin-bottom: 0;
+    opacity: 0.35;
+    flex-shrink: 0;
+    min-width: 40px;
+    padding-top: 20px;
   }
 
   .method__step-card {
-    padding: 24px 20px;
+    padding: 20px;
+    flex: 1;
   }
 
   /* Services & Projects → single column */
