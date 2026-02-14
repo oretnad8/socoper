@@ -23,8 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.getElementById('nav');
 
   hamburger.addEventListener('click', () => {
-    nav.classList.toggle('open');
+    const isOpen = nav.classList.toggle('open');
     hamburger.classList.toggle('active');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
   // Close menu on link click
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       nav.classList.remove('open');
       hamburger.classList.remove('active');
+      document.body.style.overflow = '';
     });
   });
 
@@ -105,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── SMOOTH SCROLL FOR CTA LINKS ─────────────
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
       if (targetId === '#') return;
 
