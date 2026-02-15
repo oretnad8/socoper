@@ -64,6 +64,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -653,6 +654,8 @@ a {
 .services {
   padding: var(--section-py) 0;
   background: var(--blue-800);
+  min-height: 900px;
+  /* Evita que el footer salte al filtrar */
 }
 
 .services__filters {
