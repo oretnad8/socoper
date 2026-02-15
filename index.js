@@ -157,28 +157,58 @@ document.addEventListener('DOMContentLoaded', () => {
       const service = document.getElementById('service').value;
       const message = document.getElementById('message').value;
 
-      // Build WhatsApp message
-      let waMsg = `Hola, me gustaría solicitar una evaluación técnica.%0A%0A`;
-      waMsg += `*Nombre:* ${name}%0A`;
-      waMsg += `*Email:* ${email}%0A`;
-      waMsg += `*Teléfono:* ${phone}%0A`;
-      waMsg += `*Servicio:* ${service}%0A`;
-      if (message) waMsg += `*Mensaje:* ${message}%0A`;
+      // Prepare EmailJS parameters
+      const templateParams = {
+        name: name,
+        email: email,
+        phone: phone,
+        service: service,
+        message: message || 'Sin mensaje adicional',
+        date: new Date().toLocaleString('es-CL', { timeZone: 'America/Santiago' })
+      };
 
-      // Open WhatsApp with pre-filled message
-      window.open(`https://wa.me/56920015745?text=${waMsg}`, '_blank');
-
-      // Show success state
+      // Show loading state
       const btn = form.querySelector('button[type="submit"]');
       const originalHTML = btn.innerHTML;
-      btn.innerHTML = '<span class="material-symbols-rounded">check_circle</span> Enviado';
-      btn.style.background = '#25D366';
+      btn.innerHTML = '<span class="material-symbols-rounded">sync</span> Enviando...';
+      btn.disabled = true;
 
-      setTimeout(() => {
-        btn.innerHTML = originalHTML;
-        btn.style.background = '';
-        form.reset();
-      }, 3000);
+      // Send via EmailJS
+      emailjs.send('service_socoper.web', 'template_v4u4n9p', templateParams)
+        .then(() => {
+          // Success state
+          btn.innerHTML = '<span class="material-symbols-rounded">check_circle</span> Enviado con éxito';
+          btn.style.background = '#25D366';
+
+          // Build WhatsApp message
+          let waMsg = `Hola, me gustaría solicitar una evaluación técnica.%0A%0A`;
+          waMsg += `*Nombre:* ${name}%0A`;
+          waMsg += `*Email:* ${email}%0A`;
+          waMsg += `*Teléfono:* ${phone}%0A`;
+          waMsg += `*Servicio:* ${service}%0A`;
+          if (message) waMsg += `*Mensaje:* ${message}%0A`;
+
+          // Also open WhatsApp as secondary channel
+          window.open(`https://wa.me/56920015745?text=${waMsg}`, '_blank');
+
+          setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.background = '';
+            btn.disabled = false;
+            form.reset();
+          }, 4000);
+        })
+        .catch((error) => {
+          console.error('EmailJS Error:', error);
+          btn.innerHTML = '<span class="material-symbols-rounded">error</span> Error al enviar';
+          btn.style.background = '#dc3545';
+          btn.disabled = false;
+
+          setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.background = '';
+          }, 4000);
+        });
     });
   }
 
