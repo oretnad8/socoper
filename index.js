@@ -287,15 +287,21 @@ document.addEventListener('DOMContentLoaded', () => {
       slides.forEach(slide => {
         const slideCategory = slide.getAttribute('data-category');
         if (category === 'all' || slideCategory === category) {
-          slide.style.display = 'block';
+          slide.classList.remove('swiper-slide-hidden');
+          slide.style.display = '';
         } else {
+          slide.classList.add('swiper-slide-hidden');
           slide.style.display = 'none';
         }
       });
 
-      // Update Swiper layout and move to first slide
+      // Update Swiper layout
       servicesSwiper.update();
-      servicesSwiper.slideTo(0);
+
+      // Move to first slide without forcing a sudden scroll jump if possible
+      setTimeout(() => {
+        servicesSwiper.slideTo(0, 300);
+      }, 100);
     });
   });
 
