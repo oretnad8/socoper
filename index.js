@@ -252,4 +252,51 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ─── SERVICES SLIDER & FILTERING ─────────────
+  const servicesSwiper = new Swiper('.services-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    grabCursor: true,
+    loop: false,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      640: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  });
+
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const slides = document.querySelectorAll('.services-swiper .swiper-slide');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const category = btn.getAttribute('data-category');
+
+      // Update active button
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filter slides
+      slides.forEach(slide => {
+        const slideCategory = slide.getAttribute('data-category');
+        if (category === 'all' || slideCategory === category) {
+          slide.style.display = 'block';
+        } else {
+          slide.style.display = 'none';
+        }
+      });
+
+      // Update Swiper layout and move to first slide
+      servicesSwiper.update();
+      servicesSwiper.slideTo(0);
+    });
+  });
+
 });

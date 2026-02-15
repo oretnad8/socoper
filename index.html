@@ -13,6 +13,7 @@
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="index.css">
 </head>
 
@@ -213,139 +214,199 @@
           especializados. Tomamos tus ideas y hacemos realidad tu proyecto.</p>
       </div>
 
-      <div class="services__grid">
-        <div class="service-card reveal">
-          <div class="service-card__img">
-            <img src="img/servicios/estructuras-metalicas.jpg" alt="Estructuras Metálicas" loading="lazy">
-          </div>
-          <div class="service-card__body">
-            <span class="material-symbols-rounded service-card__icon">foundation</span>
-            <h3>Estructuras Metálicas</h3>
-            <p>Diseño, fabricación e instalación de estructuras metálicas para proyectos residenciales y comerciales.
-            </p>
-          </div>
-        </div>
+      <div class="services__filters reveal">
+        <button class="filter-btn active" data-category="all">Todos</button>
+        <button class="filter-btn" data-category="proyectos">Ejecución Proyectos</button>
+        <button class="filter-btn" data-category="espacios">Habilitación Espacios</button>
+        <button class="filter-btn" data-category="mantencion">Mantención Integral</button>
+        <button class="filter-btn" data-category="tecnica">Especialidades</button>
+        <button class="filter-btn" data-category="postventa">Postventa</button>
+      </div>
 
-        <div class="service-card reveal">
-          <div class="service-card__img">
-            <img src="img/servicios/ampliacion-2do-piso.jpg" alt="Ampliación 2do Piso" loading="lazy">
-          </div>
-          <div class="service-card__body">
-            <span class="material-symbols-rounded service-card__icon">add_home</span>
-            <h3>Ampliación 2do Piso</h3>
-            <p>Ampliamos tu vivienda con segundo piso, integrando estructura segura y terminaciones de calidad.</p>
-          </div>
-        </div>
+      <div class="services__slider-container reveal">
+        <div class="swiper services-swiper">
+          <div class="swiper-wrapper">
 
-        <div class="service-card reveal">
-          <div class="service-card__img">
-            <img src="img/servicios/cambio-cubiertas.jpg" alt="Cambio de Cubiertas" loading="lazy">
-          </div>
-          <div class="service-card__body">
-            <span class="material-symbols-rounded service-card__icon">roofing</span>
-            <h3>Cambio de Cubiertas</h3>
-            <p>Reemplazo y reparación de techumbres con materiales resistentes y terminaciones profesionales.</p>
-          </div>
-        </div>
+            <!-- EJECUCIÓN DE PROYECTOS -->
+            <div class="swiper-slide" data-category="proyectos">
+              <div class="service-card">
+                <div class="service-card__img">
+                  <img src="img/servicios/estructuras-metalicas.jpg" alt="Estructuras Metálicas" loading="lazy">
+                </div>
+                <div class="service-card__body">
+                  <span class="material-symbols-rounded service-card__icon">foundation</span>
+                  <h3>Estructuras Metálicas</h3>
+                  <p>Diseño y montaje de estructuras para galpones, cobertizos y proyectos comerciales.</p>
+                </div>
+              </div>
+            </div>
 
-        <div class="service-card reveal">
-          <div class="service-card__img">
-            <img src="img/servicios/revestimiento-pisos.jpg" alt="Revestimiento de Pisos" loading="lazy">
-          </div>
-          <div class="service-card__body">
-            <span class="material-symbols-rounded service-card__icon">grid_view</span>
-            <h3>Revestimiento de Pisos</h3>
-            <p>Instalación de pisos fotolaminados, ingeniería, madera, vinílico y porcelanato con acabado profesional.
-            </p>
-          </div>
-        </div>
+            <div class="swiper-slide" data-category="proyectos">
+              <div class="service-card">
+                <div class="service-card__img">
+                  <img src="img/servicios/ampliacion-2do-piso.jpg" alt="Ampliación" loading="lazy">
+                </div>
+                <div class="service-card__body">
+                  <span class="material-symbols-rounded service-card__icon">add_home</span>
+                  <h3>Ampliación 2do Piso</h3>
+                  <p>Crecimiento habitacional con estructura sólida y terminaciones de primer nivel.</p>
+                </div>
+              </div>
+            </div>
 
-        <div class="service-card reveal">
-          <div class="service-card__img">
-            <img src="img/servicios/muebles-cocina.jpg" alt="Muebles de Cocina" loading="lazy">
-          </div>
-          <div class="service-card__body">
-            <span class="material-symbols-rounded service-card__icon">countertops</span>
-            <h3>Muebles de Cocina a Medida</h3>
-            <p>Diseño y fabricación de muebles de cocina personalizados, adaptados a cada espacio y necesidad.</p>
-          </div>
-        </div>
+            <div class="swiper-slide" data-category="proyectos">
+              <div class="service-card">
+                <div class="service-card__img">
+                  <img src="img/servicios/cierre-bulldog.jpg" alt="Cierre Bulldog" loading="lazy">
+                </div>
+                <div class="service-card__body">
+                  <span class="material-symbols-rounded service-card__icon">fence</span>
+                  <h3>Cierres Perimetrales</h3>
+                  <p>Instalación de cierre bulldog y protecciones para seguridad de su propiedad.</p>
+                </div>
+              </div>
+            </div>
 
-        <div class="service-card reveal">
-          <div class="service-card__img">
-            <img src="img/servicios/restauracion-fachadas.jpg" alt="Restauración de Fachadas" loading="lazy">
-          </div>
-          <div class="service-card__body">
-            <span class="material-symbols-rounded service-card__icon">apartment</span>
-            <h3>Restauración de Fachadas</h3>
-            <p>Restauración profesional de fachadas de edificios patrimoniales, preservando su valor arquitectónico.</p>
-          </div>
-        </div>
+            <div class="swiper-slide" data-category="proyectos">
+              <div class="service-card">
+                <div class="service-card__img">
+                  <img src="img/servicios/instalacion-pastelones.jpg" alt="Pastelones" loading="lazy">
+                </div>
+                <div class="service-card__body">
+                  <span class="material-symbols-rounded service-card__icon">view_module</span>
+                  <h3>Radieres y Pastelones</h3>
+                  <p>Obras civiles menores, nivelación de terrenos y pavimentos exteriores.</p>
+                </div>
+              </div>
+            </div>
 
-        <div class="service-card reveal">
-          <div class="service-card__img">
-            <img src="img/servicios/vitrificado-pisos.jpg" alt="Vitrificado de Pisos" loading="lazy">
-          </div>
-          <div class="service-card__body">
-            <span class="material-symbols-rounded service-card__icon">auto_awesome</span>
-            <h3>Vitrificado de Pisos de Madera</h3>
-            <p>Recuperamos y protegemos tus pisos de madera con vitrificado profesional de alta durabilidad.</p>
-          </div>
-        </div>
+            <!-- HABILITACIÓN DE ESPACIOS -->
+            <div class="swiper-slide" data-category="espacios">
+              <div class="service-card">
+                <div class="service-card__img">
+                  <img src="img/servicios/muebles-cocina.jpg" alt="Muebles" loading="lazy">
+                </div>
+                <div class="service-card__body">
+                  <span class="material-symbols-rounded service-card__icon">countertops</span>
+                  <h3>Muebles a Medida</h3>
+                  <p>Amoblado de cocinas y closets con diseño funcional y materiales premium.</p>
+                </div>
+              </div>
+            </div>
 
-        <div class="service-card reveal">
-          <div class="service-card__img">
-            <img src="img/servicios/teja-asfaltica.jpg" alt="Teja Asfáltica" loading="lazy">
-          </div>
-          <div class="service-card__body">
-            <span class="material-symbols-rounded service-card__icon">home_repair_service</span>
-            <h3>Instalación de Teja Asfáltica</h3>
-            <p>Instalación de tejas asfálticas con garantía de impermeabilidad y acabado estético superior.</p>
-          </div>
-        </div>
+            <div class="swiper-slide" data-category="espacios">
+              <div class="service-card">
+                <div class="service-card__img">
+                  <img src="img/servicios/revestimiento-pisos.jpg" alt="Pisos" loading="lazy">
+                </div>
+                <div class="service-card__body">
+                  <span class="material-symbols-rounded service-card__icon">grid_view</span>
+                  <h3>Pisos y Revestimientos</h3>
+                  <p>Instalación de porcelanatos, pisos flotantes y cerámicos de alta gama.</p>
+                </div>
+              </div>
+            </div>
 
-        <div class="service-card reveal">
-          <div class="service-card__img">
-            <img src="img/servicios/instalacion-pastelones.jpg" alt="Instalación de Pastelones" loading="lazy">
-          </div>
-          <div class="service-card__body">
-            <span class="material-symbols-rounded service-card__icon">view_module</span>
-            <h3>Instalación de Pastelones</h3>
-            <p>Colocación de pastelones para patios, jardines y accesos, con base nivelada y terminación prolija.</p>
-          </div>
-        </div>
+            <div class="swiper-slide" data-category="espacios">
+              <div class="service-card">
+                <div class="service-card__img">
+                  <img src="img/servicios/pintura-alto-trafico.jpg" alt="Pintura" loading="lazy">
+                </div>
+                <div class="service-card__body">
+                  <span class="material-symbols-rounded service-card__icon">format_paint</span>
+                  <h3>Pintura y Terminaciones</h3>
+                  <p>Aplicación de pinturas técnicas y decorativas con acabado profesional.</p>
+                </div>
+              </div>
+            </div>
 
-        <div class="service-card reveal">
-          <div class="service-card__img">
-            <img src="img/servicios/cierre-bulldog.jpg" alt="Cierre Bulldog" loading="lazy">
-          </div>
-          <div class="service-card__body">
-            <span class="material-symbols-rounded service-card__icon">fence</span>
-            <h3>Instalación de Cierre Bulldog</h3>
-            <p>Cierres perimetrales tipo Bulldog para seguridad y delimitación de propiedades.</p>
-          </div>
-        </div>
+            <!-- MANTENCIÓN INTEGRAL -->
+            <div class="swiper-slide" data-category="mantencion">
+              <div class="service-card">
+                <div class="service-card__img">
+                  <img src="img/servicios/restauracion-fachadas.jpg" alt="Fachadas" loading="lazy">
+                </div>
+                <div class="service-card__body">
+                  <span class="material-symbols-rounded service-card__icon">apartment</span>
+                  <h3>Restauración Fachadas</h3>
+                  <p>Mantenimiento y recuperación de fachadas para edificios y casas residenciales.</p>
+                </div>
+              </div>
+            </div>
 
-        <div class="service-card reveal">
-          <div class="service-card__img">
-            <img src="img/servicios/pintura-alto-trafico.jpg" alt="Pintura de Alto Tráfico" loading="lazy">
-          </div>
-          <div class="service-card__body">
-            <span class="material-symbols-rounded service-card__icon">format_paint</span>
-            <h3>Pintura de Alto Tráfico</h3>
-            <p>Aplicación de pintura de alto tráfico para superficies comerciales e industriales de alta exigencia.</p>
-          </div>
-        </div>
+            <div class="swiper-slide" data-category="mantencion">
+              <div class="service-card">
+                <div class="service-card__img">
+                  <img src="img/servicios/vitrificado-pisos.jpg" alt="Vitrificado" loading="lazy">
+                </div>
+                <div class="service-card__body">
+                  <span class="material-symbols-rounded service-card__icon">auto_awesome</span>
+                  <h3>Vitrificado Pisos</h3>
+                  <p>Protección y brillo para pisos de madera con productos de alta resistencia.</p>
+                </div>
+              </div>
+            </div>
 
-        <div class="service-card reveal">
-          <div class="service-card__img">
-            <img src="img/servicios/asesoria-constructiva.jpg" alt="Asesoría Constructiva" loading="lazy">
+            <div class="swiper-slide" data-category="mantencion">
+              <div class="service-card">
+                <div class="service-card__img">
+                  <img src="img/servicios/cambio-cubiertas.jpg" alt="Techos" loading="lazy">
+                </div>
+                <div class="service-card__body">
+                  <span class="material-symbols-rounded service-card__icon">roofing</span>
+                  <h3>Cambio de Cubiertas</h3>
+                  <p>Reparación e impermeabilización de techumbres y sistemas de evacuación.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide" data-category="mantencion">
+              <div class="service-card">
+                <div class="service-card__img">
+                  <img src="img/servicios/teja-asfaltica.jpg" alt="Teja Asfáltica" loading="lazy">
+                </div>
+                <div class="service-card__body">
+                  <span class="material-symbols-rounded service-card__icon">home_repair_service</span>
+                  <h3>Teja Asfáltica</h3>
+                  <p>Instalación técnica de tejas asfálticas con altos estándares de sellado.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ESPECIALIDADES TÉCNICAS -->
+            <div class="swiper-slide" data-category="tecnica">
+              <div class="service-card">
+                <div class="service-card__img">
+                  <img src="img/servicios/asesoria-constructiva.jpg" alt="Especialidades" loading="lazy">
+                </div>
+                <div class="service-card__body">
+                  <span class="material-symbols-rounded service-card__icon">dynamic_form</span>
+                  <h3> MEP y Especialidades</h3>
+                  <p>Instalaciones Eléctricas, Sanitarias y Clima bajo norma oficial.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- POSTVENTA -->
+            <div class="swiper-slide" data-category="postventa">
+              <div class="service-card">
+                <div class="service-card__img">
+                  <img src="img/servicios/revestimiento-pisos2.jpg" alt="Postventa" loading="lazy">
+                </div>
+                <div class="service-card__body">
+                  <span class="material-symbols-rounded service-card__icon">verified</span>
+                  <h3>Garantía Postventa</h3>
+                  <p>Asistencia técnica y cumplimiento de garantías tras la entrega de obra técnica.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <div class="service-card__body">
-            <span class="material-symbols-rounded service-card__icon">engineering</span>
-            <h3>Asesoría Constructiva</h3>
-            <p>Te orientamos técnicamente en tu proyecto para tomar las mejores decisiones antes de construir.</p>
-          </div>
+
+          <div class="swiper-pagination"></div>
+
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </div>
     </div>
@@ -619,18 +680,11 @@
             <label for="service">Servicio de interés</label>
             <select id="service" required>
               <option value="" disabled selected>Selecciona un servicio</option>
-              <option>Estructuras Metálicas</option>
-              <option>Ampliación 2do Piso</option>
-              <option>Cambio de Cubiertas</option>
-              <option>Revestimiento de Pisos</option>
-              <option>Muebles de Cocina a Medida</option>
-              <option>Restauración de Fachadas</option>
-              <option>Vitrificado de Pisos</option>
-              <option>Teja Asfáltica</option>
-              <option>Instalación de Pastelones</option>
-              <option>Cierre Bulldog</option>
-              <option>Pintura de Alto Tráfico</option>
-              <option>Asesoría Constructiva</option>
+              <option>Ejecución de Proyectos (Construcción y OOCC)</option>
+              <option>Habilitación de Espacios (Oficinas y Locales)</option>
+              <option>Mantención Integral (Viviendas y Edificios)</option>
+              <option>Instalaciones Técnicas (Clima, Electricidad, Sanitarias)</option>
+              <option>Servicio de Postventa</option>
               <option>Otro</option>
             </select>
           </div>
@@ -673,12 +727,11 @@
 
         <div class="footer__col">
           <h4>Servicios</h4>
-          <a href="#servicios">Estructuras Metálicas</a>
-          <a href="#servicios">Ampliación 2do Piso</a>
-          <a href="#servicios">Cambio de Cubiertas</a>
-          <a href="#servicios">Revestimiento de Pisos</a>
-          <a href="#servicios">Muebles de Cocina</a>
-          <a href="#servicios">Restauración de Fachadas</a>
+          <a href="#servicios">Ejecución de Proyectos</a>
+          <a href="#servicios">Habilitación de Espacios</a>
+          <a href="#servicios">Mantención Integral</a>
+          <a href="#servicios">Instalaciones Técnicas</a>
+          <a href="#servicios">Servicio de Postventa</a>
         </div>
 
         <div class="footer__col">
@@ -740,6 +793,7 @@
       });
     })();
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="index.js"></script>
 </body>
 
