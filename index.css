@@ -1450,9 +1450,6 @@ a {
     padding: 6px 14px;
   }
 
-  .section-title br {
-    display: none;
-  }
 
   .services__grid,
   .projects__grid {
@@ -1488,18 +1485,12 @@ a {
     font-size: 28px;
   }
 
-  .hero__title br {
-    display: none;
-  }
 
   .hero__subtitle {
     font-size: 15px;
     margin-bottom: 28px;
   }
 
-  .hero__subtitle br {
-    display: none;
-  }
 
   .hero__actions {
     flex-direction: column;
@@ -1595,9 +1586,6 @@ a {
     font-size: 28px;
   }
 
-  .cta__title br {
-    display: none;
-  }
 
   .cta__actions {
     flex-direction: column;
