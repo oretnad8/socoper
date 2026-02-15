@@ -16,6 +16,9 @@
   --orange: #E8712B;
   --orange-glow: rgba(232, 113, 43, 0.35);
   --orange-hover: #F07E3A;
+  --swiper-theme-color: var(--orange);
+  /* Forza el color de swiper a naranja */
+  --swiper-navigation-color: var(--orange);
 
   /* Neutrals */
   --white: #FFFFFF;
@@ -725,8 +728,14 @@ a {
 }
 
 .services-swiper .swiper-pagination-bullet-active {
-  background: var(--orange);
+  background: var(--orange) !important;
   opacity: 1;
+}
+
+/* Ocultar flechas por si acaso el JS las inyecta */
+.services-swiper .swiper-button-next,
+.services-swiper .swiper-button-prev {
+  display: none !important;
 }
 
 .service-card {
