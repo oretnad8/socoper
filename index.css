@@ -73,6 +73,9 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
+  /* Crucial para evitar scroll horizontal accidental */
+  width: 100%;
+  position: relative;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -653,14 +656,9 @@ a {
 .services {
   padding: var(--section-py) 0;
   background: var(--blue-800);
-  /* Altura mínima responsiva para evitar saltos bruscos al filtrar */
-  min-height: 600px;
-}
-
-@media (max-width: 768px) {
-  .services {
-    min-height: 450px;
-  }
+  position: relative;
+  overflow: hidden;
+  /* Garantiza que nada escape de la sección */
 }
 
 .services__filters {
@@ -706,7 +704,8 @@ a {
 
 .services-swiper {
   padding: 20px 0 60px !important;
-  overflow: visible !important;
+  overflow: hidden !important;
+  /* Volvemos a ocultar para evitar desbordamiento */
 }
 
 .services-swiper .swiper-slide {

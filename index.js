@@ -298,10 +298,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // Update Swiper layout
       servicesSwiper.update();
 
-      // Move to first slide without forcing a sudden scroll jump if possible
-      setTimeout(() => {
-        servicesSwiper.slideTo(0, 300);
-      }, 100);
+      // Move to first slide only if we are not already there
+      if (servicesSwiper.activeIndex !== 0) {
+        servicesSwiper.slideTo(0, 400);
+      }
     });
   });
 
