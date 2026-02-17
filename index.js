@@ -4,6 +4,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ─── FIX HEADER LAYOUT SHIFT ──────────────────
+  // Set data-text attribute for CSS to reserve space for bold font
+  document.querySelectorAll('.nav__link').forEach(link => {
+    link.setAttribute('data-text', link.textContent);
+  });
+
   // ─── HEADER SCROLL EFFECT ─────────────────────
   const header = document.getElementById('header');
   let lastScroll = 0;

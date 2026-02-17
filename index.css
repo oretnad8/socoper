@@ -67,6 +67,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  overflow-y: scroll;
+  /* Force scrollbar to prevent layout shift */
 }
 
 body {
@@ -329,6 +331,19 @@ a {
   color: var(--gray-400);
   transition: color 0.3s;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Reserve space for bold text to prevent layout shift */
+.nav__link::before {
+  display: block;
+  content: attr(data-text);
+  font-weight: 700;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
 }
 
 .nav__link::after {
@@ -342,11 +357,14 @@ a {
   transition: width 0.3s var(--ease);
 }
 
-.nav__link:hover {
+.nav__link:hover,
+.nav__link.active {
   color: var(--white);
+  font-weight: 700;
 }
 
-.nav__link:hover::after {
+.nav__link:hover::after,
+.nav__link.active::after {
   width: 100%;
 }
 
