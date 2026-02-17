@@ -4,12 +4,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ─── FIX HEADER LAYOUT SHIFT ──────────────────
-  // Set data-text attribute for CSS to reserve space for bold font
-  document.querySelectorAll('.nav__link').forEach(link => {
-    link.setAttribute('data-text', link.textContent);
-  });
-
   // ─── HEADER SCROLL EFFECT ─────────────────────
   const header = document.getElementById('header');
   let lastScroll = 0;
@@ -44,13 +38,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function closeMenu() {
+    if (!nav.classList.contains('open')) return;
+
     nav.classList.remove('open');
     hamburger.classList.remove('active');
     document.body.classList.remove('menu-open');
     document.body.style.overflow = '';
     navBackdrop.classList.remove('visible');
-    // Move nav back into header
-    header.querySelector('.header__inner').appendChild(nav);
+
+    // Move nav back into header at the correct position (before the button)
+    const headerInner = header.querySelector('.header__inner');
+    const headerBtn = headerInner.querySelector('.btn--header');
+    headerInner.insertBefore(nav, headerBtn);
   }
 
   hamburger.addEventListener('click', () => {

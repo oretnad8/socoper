@@ -331,19 +331,6 @@ a {
   color: var(--gray-400);
   transition: color 0.3s;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Reserve space for bold text to prevent layout shift */
-.nav__link::before {
-  display: block;
-  content: attr(data-text);
-  font-weight: 700;
-  height: 0;
-  overflow: hidden;
-  visibility: hidden;
 }
 
 .nav__link::after {
@@ -360,7 +347,9 @@ a {
 .nav__link:hover,
 .nav__link.active {
   color: var(--white);
-  font-weight: 700;
+  /* Use text-shadow to simulate bold without changing width/layout */
+  text-shadow: 0 0 .65px currentColor, 0 0 .65px currentColor;
+  font-weight: 500;
 }
 
 .nav__link:hover::after,
@@ -461,7 +450,7 @@ a {
 }
 
 .hero__title {
-  font-size: clamp(36px, 5.5vw, 64px);
+  font-size: clamp(28px, 4.5vw, 52px);
   font-weight: 800;
   color: var(--white);
   line-height: 1.08;
